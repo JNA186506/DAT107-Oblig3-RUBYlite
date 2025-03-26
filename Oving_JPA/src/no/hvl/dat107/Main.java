@@ -20,6 +20,8 @@ public class Main {
 	
 	public static void main(String[] args) throws ClassNotFoundException {
 		
+		System.out.println("Starter");
+		
 		Class.forName(JDBC_DRIVER);
 		
 		Scanner s = new Scanner(System.in);
@@ -35,11 +37,14 @@ public class Main {
 				done = true;
 				break;
 			default:
-				finnAnsatt(action).skrivUt();
+				Ansatt ansatt = finnAnsatt(action);
+				if(ansatt != null) ansatt.skrivUt();
 				break;
 			}
 			
 		}
+		
+		System.out.println("Avslutter");
 		
 		s.close();
 		emf.close();
@@ -52,7 +57,14 @@ public class Main {
 		
 		try {
 			
-			List<Integer> resultat = em.createQuery("SELECT a.aid FROM Ansatt a WHERE a.brukernavn LIKE :value").setParameter("value", brukernavn).getResultList();
+			List<Integer> resultat = em.createQuery("SELECT a.aid FROM Ansatt a WHERE UPPER(a.brukernavn) LIKE UPPER(:value)", Integer.class).setParameter("value", brukernavn).getResultList();
+			
+			if(resultat.isEmpty()) {
+				
+				System.out.println("Søk gav ingen resultater");
+				return null;
+				
+			}
 			
 			return em.find(Ansatt.class, resultat.get(0));
 			
