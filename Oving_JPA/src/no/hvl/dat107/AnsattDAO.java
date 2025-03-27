@@ -3,7 +3,11 @@ package no.hvl.dat107;
 import java.math.BigDecimal;
 import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 
 public class AnsattDAO extends Ansatt {
 	
@@ -101,7 +105,31 @@ public class AnsattDAO extends Ansatt {
 
 	}
 	
-	public boolean leggTilAnsatt() {
+	public boolean leggTilAnsatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, BigDecimal maanedslonn) {
+		
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		
+		try {
+			tx.begin();
+			
+			Ansatt NyA = new Ansatt(aid, brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn);
+			
+			em.persist(NyA);
+			
+			tx.commit();
+			
+			return true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx.isActive()) {
+				tx.rollback();
+			} 
+		}finally {
+			em.close();
+		}
+		
 		
 		return false;
 	}
