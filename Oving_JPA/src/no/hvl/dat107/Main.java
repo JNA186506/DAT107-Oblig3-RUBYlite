@@ -30,15 +30,31 @@ public class Main {
 		
 		while(!done) {
 			
+			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn");
+			
 			action = s.nextLine();
+			
+			Ansatt ansatt = null;
 			
 			switch(action) {
 			case "done":
 				done = true;
 				break;
-			default:
-				Ansatt ansatt = finnAnsatt(action);
+			case "id":
+				System.out.println("Skriv inn id: ");
+				Integer id = s.nextInt();
+				s.nextLine();
+				ansatt = finnAnsattId(id);
 				if(ansatt != null) ansatt.skrivUt();
+				break;
+			case "brukernavn":
+				System.out.println("Skriv inn brukernavn: ");
+				String brukernavn = s.nextLine();
+				ansatt = finnAnsattBrukernavn(brukernavn);
+				if(ansatt != null) ansatt.skrivUt();
+				break;
+			default:
+				System.out.println("Ugyldig input");
 				break;
 			}
 			
@@ -51,23 +67,48 @@ public class Main {
 		
 	}
 	
-	public static Ansatt finnAnsatt(String brukernavn) {
+	public static Ansatt finnAnsattId(Integer id) {
+		
+		EntityManager em = emf.createEntityManager();
+		
+		try {
+			
+			return em.find(Ansatt.class, id);
+			
+		}
+		
+		catch(Exception e) {
+			
+			System.out.println("Søk gav ingen resultater");
+			return null;
+			
+		}
+		
+	}
+	
+	public static Ansatt finnAnsattBrukernavn(String brukernavn) {
 		
 		EntityManager em = emf.createEntityManager();
 		
 		try {
 			
 			String queryString = "SELECT a.aid FROM Ansatt a WHERE UPPER(a.brukernavn) LIKE UPPER(:value)";
-			List<Integer> resultat = em.createQuery(queryString, Integer.class).setParameter("value", brukernavn).getResultList();
+			Integer resultat = -1;
 			
-			if(resultat.isEmpty()) {
+			try {
+				
+				resultat = em.createQuery(queryString, Integer.class).setParameter("value", brukernavn).getSingleResult();
+				
+			}
+			
+			catch(Exception e) {
 				
 				System.out.println("Søk gav ingen resultater");
 				return null;
 				
 			}
 			
-			return em.find(Ansatt.class, resultat.get(0));
+			return em.find(Ansatt.class, resultat);
 			
 		}
 		
