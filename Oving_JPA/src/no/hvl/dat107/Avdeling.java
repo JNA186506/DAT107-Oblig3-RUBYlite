@@ -1,8 +1,8 @@
 package no.hvl.dat107;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(schema = "oblig3")
@@ -19,6 +19,14 @@ public class Avdeling {
         this.navn = navn;
         this.sjef = sjef;
     }
+
+    @OneToMany
+    @JoinTable(
+            name = "oblig3",
+            joinColumns = @JoinColumn(name="avdelingsid"),
+            inverseJoinColumns = @JoinColumn(name="aid")
+    )
+    private List<Ansatt> ansatte;
 
     public String getNavn() {
         return navn;
