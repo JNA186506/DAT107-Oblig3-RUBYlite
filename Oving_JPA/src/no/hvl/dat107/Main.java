@@ -32,7 +32,7 @@ public class Main {
 		
 		while(!done) {
 			
-			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn");
+			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte");
 			
 			action = s.nextLine();
 			
@@ -54,6 +54,9 @@ public class Main {
 				String brukernavn = s.nextLine();
 				ansatt = a.finnAnsattBrukernavn(brukernavn);
 				if(ansatt != null) ansatt.skrivUt();
+				break;
+			case "liste":
+				for(Ansatt temp : a.ansattListe()) temp.skrivUt();
 				break;
 			default:
 				System.out.println("Ugyldig input");

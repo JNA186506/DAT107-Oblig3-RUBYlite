@@ -48,7 +48,7 @@ public class Ansatt {
 		sb.append("Etternavn: " + etternavn + "\n");
 		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
 		sb.append("Stilling: " + stilling + "\n");
-		sb.append("Månedslønn: " + maanedslonn);
+		sb.append("Månedslønn: " + maanedslonn + "\n");
 		
 		System.out.println(sb.toString());
 		

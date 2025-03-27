@@ -69,7 +69,7 @@ public class AnsattDAO extends Ansatt {
 		
 	}
 	
-	public static List<Ansatt> ansattListe() {
+	public List<Ansatt> ansattListe() {
 		
 		EntityManager em = emf.createEntityManager();
 		
@@ -78,7 +78,7 @@ public class AnsattDAO extends Ansatt {
 					SELECT a FROM Ansatt as a
 					""";
 			
-			TypedQuery<Ansatt> query = em.createNamedQuery(jpqlQuery, Ansatt.class);
+			TypedQuery<Ansatt> query = em.createQuery(jpqlQuery, Ansatt.class);
 			
 			return query.getResultList();
 			
