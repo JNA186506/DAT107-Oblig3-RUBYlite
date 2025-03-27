@@ -72,7 +72,7 @@ public class Ansatt {
 		this.etternavn = etternavn;
 	}
 
-	public String getAnsettelsesdato() {
+	public Date getAnsettelsesdato() {
 		return ansettelsesdato;
 	}
 
