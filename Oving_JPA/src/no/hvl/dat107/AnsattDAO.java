@@ -21,13 +21,13 @@ public class AnsattDAO extends Ansatt {
 		return null;
 	}
 	
-	public List<Ansatt> ansattListe() {
+	public static List<Ansatt> ansattListe() {
 		
 		EntityManager em = emf.createEntityManager();
 		
 		try {
 			String jpqlQuery = """ 
-					select a from Ansatt as a
+					SELECT a FROM Ansatt as a
 					""";
 			
 			TypedQuery<Ansatt> query = em.createNamedQuery(jpqlQuery, Ansatt.class);

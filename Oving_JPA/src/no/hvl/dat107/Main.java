@@ -22,10 +22,6 @@ public class Main {
 		
 		System.out.println("Starter");
 		
-		AnsattDAO a = new AnsattDAO();
-		
-		System.out.print(a.ansattListe());
-		
 		Class.forName(JDBC_DRIVER);
 		
 		Scanner s = new Scanner(System.in);

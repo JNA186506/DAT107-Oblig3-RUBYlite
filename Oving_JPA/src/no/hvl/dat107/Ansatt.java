@@ -2,10 +2,12 @@ package no.hvl.dat107;
 
 import java.util.List;
 
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,7 +24,7 @@ public class Ansatt {
 	private String stilling;
 	private Integer maanedslonn;
 	
-	@OneToMany(mappedBy = "Ansatt", fetch = FetchType.EAGER)
+	@ElementCollection(fetch = FetchType.EAGER)
 	private List<Ansatt> Ansatte;
 	
 	public Ansatt() {}
