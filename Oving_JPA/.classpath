@@ -10,5 +10,8 @@
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/dat107-jar-filer-v25/eclipselink-4.0.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/dat107-jar-filer-v25/jakarta.persistence-api-3.1.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/dat107-jar-filer-v25/postgresql-42.7.5.jar"/>
+	<classpathentry kind="lib" path="/Users/johannesantonsen/Downloads/dat107-jar-filer-v25/postgresql-42.7.5.jar"/>
+	<classpathentry kind="lib" path="/Users/johannesantonsen/Downloads/dat107-jar-filer-v25/jakarta.persistence-api-3.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/johannesantonsen/Downloads/dat107-jar-filer-v25/eclipselink-4.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
