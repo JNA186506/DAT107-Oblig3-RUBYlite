@@ -3,7 +3,7 @@ SET SEARCH_PATH TO oblig3;
 DROP TABLE IF EXISTS ansatt;
 
 CREATE TABLE ansatt(
-	aId int GENERATED ALWAYS AS IDENTITY,
+	aid int GENERATED ALWAYS AS IDENTITY,
 	brukernavn varchar(4) NOT NULL UNIQUE,
 	fornavn varchar NOT NULL,
 	etternavn varchar NOT NULL,

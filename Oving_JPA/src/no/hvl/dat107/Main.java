@@ -57,7 +57,8 @@ public class Main {
 		
 		try {
 			
-			List<Integer> resultat = em.createQuery("SELECT a.aid FROM Ansatt a WHERE UPPER(a.brukernavn) LIKE UPPER(:value)", Integer.class).setParameter("value", brukernavn).getResultList();
+			String queryString = "SELECT a.aid FROM Ansatt a WHERE UPPER(a.brukernavn) LIKE UPPER(:value)";
+			List<Integer> resultat = em.createQuery(queryString, Integer.class).setParameter("value", brukernavn).getResultList();
 			
 			if(resultat.isEmpty()) {
 				
