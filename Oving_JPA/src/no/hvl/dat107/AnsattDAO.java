@@ -119,30 +119,30 @@ public class AnsattDAO extends Ansatt {
 	}
 	
 	public boolean leggTilAnsatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
-		
+
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
-		
+
 		try {
 			tx.begin();
-			
+
 			Ansatt NyA = new Ansatt(brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn);
-			
+
 			em.persist(NyA);
-			
+
 			tx.commit();
-			
+
 			return true;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (tx.isActive()) {
 				tx.rollback();
-			} 
+			}
 		}finally {
 			em.close();
 		}
-		
+
 		
 		return false;
 	}
