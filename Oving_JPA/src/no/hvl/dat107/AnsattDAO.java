@@ -1,5 +1,6 @@
 package no.hvl.dat107;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -80,7 +81,7 @@ public class AnsattDAO extends Ansatt {
 		}
 	}
 	
-	public void oppdaterAnsatt(int id, String stilling, Integer maanedslonn) {
+	public void oppdaterAnsatt(int id, String stilling, BigDecimal maanedslonn) {
 
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
