@@ -21,9 +21,7 @@ public class Ansatt {
 	private String ansettelsesdato;
 	private String stilling;
 	private Integer maanedslonn;
-	
-	//@OneToMany(mappedBy = "Ansatt", fetch = FetchType.EAGER)
-	//private List<Ansatt> Ansatte;
+
 	
 	public Ansatt() {}
 	public Ansatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, Integer maanedslonn) {
@@ -37,7 +35,63 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 		
 	}
-	
+
+	public int getAid() {
+		return aid;
+	}
+
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
+
+	public String getBrukernavn() {
+		return brukernavn;
+	}
+
+	public void setBrukernavn(String brukernavn) {
+		this.brukernavn = brukernavn;
+	}
+
+	public String getFornavn() {
+		return fornavn;
+	}
+
+	public void setFornavn(String fornavn) {
+		this.fornavn = fornavn;
+	}
+
+	public String getEtternavn() {
+		return etternavn;
+	}
+
+	public void setEtternavn(String etternavn) {
+		this.etternavn = etternavn;
+	}
+
+	public String getAnsettelsesdato() {
+		return ansettelsesdato;
+	}
+
+	public void setAnsettelsesdato(String ansettelsesdato) {
+		this.ansettelsesdato = ansettelsesdato;
+	}
+
+	public String getStilling() {
+		return stilling;
+	}
+
+	public void setStilling(String stilling) {
+		this.stilling = stilling;
+	}
+
+	public Integer getMaanedslonn() {
+		return maanedslonn;
+	}
+
+	public void setMaanedslonn(Integer maanedslonn) {
+		this.maanedslonn = maanedslonn;
+	}
+
 	public void skrivUt() {
 		
 		StringBuilder sb = new StringBuilder();
@@ -52,9 +106,4 @@ public class Ansatt {
 		System.out.println(sb.toString());
 		
 	}
-	/*
-	public List<Ansatt> getAnsatt() {
-		return Ansatte;
-	}
-	*/
 }

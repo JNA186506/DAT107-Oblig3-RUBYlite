@@ -1,5 +1,6 @@
 package no.hvl.dat107;
 
+import java.util.List;
 import java.util.Scanner;
 
 import jakarta.persistence.EntityManagerFactory;
@@ -19,10 +20,8 @@ public class Main {
 	public static void main(String[] args) throws ClassNotFoundException {
 		
 		System.out.println("Starter");
-		
+
 		AnsattDAO a = new AnsattDAO();
-		
-		//System.out.print(a.ansattListe());
 		
 		Class.forName(JDBC_DRIVER);
 		
@@ -37,6 +36,7 @@ public class Main {
 			action = s.nextLine();
 			
 			Ansatt ansatt = null;
+			Integer id = null;
 			
 			switch(action) {
 			case "done":
@@ -44,7 +44,7 @@ public class Main {
 				break;
 			case "id":
 				System.out.println("Skriv inn id: ");
-				Integer id = s.nextInt();
+				id = s.nextInt();
 				s.nextLine();
 				ansatt = a.finnAnsattId(id);
 				if(ansatt != null) ansatt.skrivUt();

@@ -2,10 +2,7 @@ package no.hvl.dat107;
 
 import java.util.List;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 
 public class AnsattDAO extends Ansatt {
 	
@@ -70,26 +67,37 @@ public class AnsattDAO extends Ansatt {
 	}
 	
 	public static List<Ansatt> ansattListe() {
-		
 		EntityManager em = emf.createEntityManager();
-		
+
 		try {
 			String jpqlQuery = """ 
-					SELECT a FROM Ansatt as a
+					SELECT a FROM Ansatt AS a
 					""";
-			
-			TypedQuery<Ansatt> query = em.createNamedQuery(jpqlQuery, Ansatt.class);
-			
+			TypedQuery<Ansatt> query = em.createQuery(jpqlQuery, Ansatt.class);
 			return query.getResultList();
-			
 		} finally {
 			em.close();
 		}
-		
 	}
 	
-	public void oppdaterLonn() {
-		
+	public void oppdaterAnsatt(int id, String stilling, Integer maanedslonn) {
+
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction tx = em.getTransaction();
+
+		try {
+			tx.begin();
+			Ansatt a = em.find(Ansatt.class, id);
+			a.setMaanedslonn(maanedslonn);
+			a.setStilling(stilling);
+
+			em.merge(a);
+
+			tx.commit();
+		} finally {
+			em.close();
+		}
+
 	}
 	
 	public boolean leggTilAnsatt() {
