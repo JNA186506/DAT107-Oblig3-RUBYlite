@@ -13,6 +13,22 @@ CREATE TABLE ansatt(
 	PRIMARY KEY (aid)
 );
 
+CREATE TABLE avdeling(
+    avdelignsid int GENERATED ALWAYS AS IDENTITY,
+    navn varchar UNIQUE NOT NULL,
+    leder varchar NOT NULL,
+    PRIMARY KEY (avdelignsid),
+    FOREIGN KEY (leder) REFERENCES ansatt(aid)
+);
+
+-- En-til-mange
+CREATE TABLE horertilavdeling(
+  ansattid int,
+  avdelingnavn varchar,
+  CONSTRAINT deltakelsePK PRIMARY KEY (ansattid,avdelingnavn),
+  CONSTRAINT ansattFK FOREIGN KEY (ansattid) REFERENCES ansatt(aid)
+);
+
 INSERT INTO ansatt(brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn)
 VALUES
 	('Per', 'Peter', 'Petterson', '2020-12-10', 'Leder', 20.00),
