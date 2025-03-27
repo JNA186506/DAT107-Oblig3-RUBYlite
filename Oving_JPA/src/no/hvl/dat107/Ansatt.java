@@ -1,6 +1,7 @@
 package no.hvl.dat107;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -19,7 +20,7 @@ public class Ansatt {
 	private String brukernavn;
 	private String fornavn;
 	private String etternavn;
-	private String ansettelsesdato;
+	private Date ansettelsesdato;
 	private String stilling;
 	private BigDecimal maanedslonn;
 	
@@ -27,7 +28,7 @@ public class Ansatt {
 	//private List<Ansatt> Ansatte;
 	
 	public Ansatt() {}
-	public Ansatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, BigDecimal maanedslonn) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
 		
 		this.aid = aid;
 		this.brukernavn = brukernavn;
@@ -75,7 +76,7 @@ public class Ansatt {
 		return ansettelsesdato;
 	}
 
-	public void setAnsettelsesdato(String ansettelsesdato) {
+	public void setAnsettelsesdato(Date ansettelsesdato) {
 		this.ansettelsesdato = ansettelsesdato;
 	}
 

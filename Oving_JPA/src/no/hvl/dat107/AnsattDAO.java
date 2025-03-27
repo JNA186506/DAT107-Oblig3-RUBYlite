@@ -1,6 +1,7 @@
 package no.hvl.dat107;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.EntityManager;
@@ -117,7 +118,7 @@ public class AnsattDAO extends Ansatt {
 
 	}
 	
-	public boolean leggTilAnsatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, BigDecimal maanedslonn) {
+	public boolean leggTilAnsatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
 
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -125,7 +126,7 @@ public class AnsattDAO extends Ansatt {
 		try {
 			tx.begin();
 
-			Ansatt NyA = new Ansatt(aid, brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn);
+			Ansatt NyA = new Ansatt(brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn);
 
 			em.persist(NyA);
 
