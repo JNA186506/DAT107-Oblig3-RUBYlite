@@ -1,5 +1,6 @@
 package no.hvl.dat107;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -57,6 +58,12 @@ public class Main {
 				break;
 			case "liste":
 				for(Ansatt temp : a.ansattListe()) temp.skrivUt();
+				break;
+			case "endre":
+				System.out.println("Skriv inn ansattid: ");
+				id = s.nextInt();
+				s.nextLine();
+				a.oppdaterAnsatt(id, null, BigDecimal.valueOf(60.00));
 				break;
 			default:
 				System.out.println("Ugyldig input");

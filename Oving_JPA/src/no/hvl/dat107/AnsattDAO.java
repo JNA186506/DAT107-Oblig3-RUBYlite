@@ -89,8 +89,20 @@ public class AnsattDAO extends Ansatt {
 		try {
 			tx.begin();
 			Ansatt a = em.find(Ansatt.class, id);
-			a.setMaanedslonn(maanedslonn);
-			a.setStilling(stilling);
+			if(maanedslonn != null) {
+				
+				a.setMaanedslonn(maanedslonn);
+				System.out.println("Ny månedslønn er satt");
+				
+			}
+			else System.out.println("Ingen ny månedslønn");;
+			if(stilling != null) {
+				
+				a.setStilling(stilling);
+				System.out.println("Ny stilling er satt");
+				
+			}
+			else System.out.println("Ingen ny stilling");;
 
 			em.merge(a);
 
