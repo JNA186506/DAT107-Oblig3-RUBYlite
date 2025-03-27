@@ -1,6 +1,9 @@
 package no.hvl.dat107;
 
 import java.math.BigDecimal;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
@@ -30,15 +33,22 @@ public class Main {
 		Scanner s = new Scanner(System.in).useLocale(Locale.US);
 		boolean done = false;
 		String action = "";
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 		
 		while(!done) {
 			
-			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt");
+			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt");
 			
 			action = s.nextLine();
 			
 			Ansatt ansatt = null;
 			Integer id = null;
+			String brukernavn = "";
+			String fornavn = "";
+			String etternavn = "";
+			String datoStr = "";
+			String stilling = "";
+			double lonn = 0.0;
 			
 			switch(action) {
 			case "done":
@@ -53,7 +63,7 @@ public class Main {
 				break;
 			case "brukernavn":
 				System.out.println("Skriv inn brukernavn: ");
-				String brukernavn = s.nextLine();
+				brukernavn = s.nextLine();
 				ansatt = a.finnAnsattBrukernavn(brukernavn);
 				if(ansatt != null) ansatt.skrivUt();
 				break;
@@ -68,9 +78,31 @@ public class Main {
 				a.oppdaterAnsatt(id, s.nextLine(), BigDecimal.valueOf(s.nextDouble()));
 				s.nextLine();
 				break;
-			case "leggtil":
-				System.out.println("Skriv inn ansattid: ");
-				a.leggTilAnsatt(s.nextLine(), "Nils", "Nilsen", java.sql.Date.valueOf(LocalDate.now()), "Person", BigDecimal.valueOf(10.2));
+			case "legg til":
+				System.out.println("Skriv inn følgende, separat: brukernavn (maks 4 tegn), fornavn, etternavn");
+				brukernavn = s.nextLine();
+				fornavn = s.nextLine();
+				etternavn = s.nextLine();
+				System.out.println("Skriv inn følgende, separat: dato (dd-MM-yyyy), stilling, lønn (xyz.abc)");
+				Date dato = null;
+				while(dato == null) {
+					try {
+						
+						datoStr = s.nextLine();
+						dato = new java.sql.Date(formatter.parse(datoStr).getTime());
+						
+					}
+					
+					catch (ParseException e) {
+						
+						System.out.println("Ugyldig dato (dd-MM-yyyy)");
+						
+					}
+				}
+				stilling = s.nextLine();
+				lonn = s.nextDouble();
+				s.nextLine();
+				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn));
 				break;
 			default:
 				System.out.println("Ugyldig input");
