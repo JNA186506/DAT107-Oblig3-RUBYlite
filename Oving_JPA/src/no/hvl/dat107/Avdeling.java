@@ -50,6 +50,7 @@ public class Avdeling {
                 "avdelignsid=" + avdelignsid +
                 ", navn='" + navn + '\'' +
                 ", sjef='" + sjef + '\'' +
+                ", ansatte=" + ansatte +
                 '}';
     }
 }
