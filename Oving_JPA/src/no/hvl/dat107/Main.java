@@ -32,7 +32,7 @@ public class Main {
 		
 		while(!done) {
 			
-			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn");
+			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn");
 			
 			action = s.nextLine();
 			

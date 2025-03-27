@@ -1,5 +1,6 @@
 package no.hvl.dat107;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -20,13 +21,13 @@ public class Ansatt {
 	private String etternavn;
 	private String ansettelsesdato;
 	private String stilling;
-	private Integer maanedslonn;
+	private BigDecimal maanedslonn;
 	
 	//@OneToMany(mappedBy = "Ansatt", fetch = FetchType.EAGER)
 	//private List<Ansatt> Ansatte;
 	
 	public Ansatt() {}
-	public Ansatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, Integer maanedslonn) {
+	public Ansatt(int aid, String brukernavn, String fornavn, String etternavn, String ansettelsesdato, String stilling, BigDecimal maanedslonn) {
 		
 		this.aid = aid;
 		this.brukernavn = brukernavn;
@@ -41,13 +42,13 @@ public class Ansatt {
 	public void skrivUt() {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(aid + ", ");
-		sb.append(brukernavn + ", ");
-		sb.append(fornavn + ", ");
-		sb.append(etternavn + ", ");
-		sb.append(ansettelsesdato + ", ");
-		sb.append(stilling + ", ");
-		sb.append(maanedslonn);
+		sb.append("Id: " + aid + "\n");
+		sb.append("Brukernavn: " + brukernavn + "\n");
+		sb.append("Fornavn: " + fornavn + "\n");
+		sb.append("Etternavn: " + etternavn + "\n");
+		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
+		sb.append("Stilling: " + stilling + "\n");
+		sb.append("Månedslønn: " + maanedslonn);
 		
 		System.out.println(sb.toString());
 		
