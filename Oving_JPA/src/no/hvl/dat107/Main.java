@@ -1,9 +1,7 @@
 package no.hvl.dat107;
 
-import java.util.List;
 import java.util.Scanner;
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -24,7 +22,7 @@ public class Main {
 		
 		AnsattDAO a = new AnsattDAO();
 		
-		System.out.print(a.ansattListe());
+		//System.out.print(a.ansattListe());
 		
 		Class.forName(JDBC_DRIVER);
 		
@@ -48,13 +46,13 @@ public class Main {
 				System.out.println("Skriv inn id: ");
 				Integer id = s.nextInt();
 				s.nextLine();
-				ansatt = finnAnsattId(id);
+				ansatt = a.finnAnsattId(id);
 				if(ansatt != null) ansatt.skrivUt();
 				break;
 			case "brukernavn":
 				System.out.println("Skriv inn brukernavn: ");
 				String brukernavn = s.nextLine();
-				ansatt = finnAnsattBrukernavn(brukernavn);
+				ansatt = a.finnAnsattBrukernavn(brukernavn);
 				if(ansatt != null) ansatt.skrivUt();
 				break;
 			default:
@@ -71,57 +69,4 @@ public class Main {
 		
 	}
 	
-	public static Ansatt finnAnsattId(Integer id) {
-		
-		EntityManager em = emf.createEntityManager();
-		
-		try {
-			
-			return em.find(Ansatt.class, id);
-			
-		}
-		
-		catch(Exception e) {
-			
-			System.out.println("Søk gav ingen resultater");
-			return null;
-			
-		}
-		
-	}
-	
-	public static Ansatt finnAnsattBrukernavn(String brukernavn) {
-		
-		EntityManager em = emf.createEntityManager();
-		
-		try {
-			
-			String queryString = "SELECT a.aid FROM Ansatt a WHERE UPPER(a.brukernavn) LIKE UPPER(:value)";
-			Integer resultat = -1;
-			
-			try {
-				
-				resultat = em.createQuery(queryString, Integer.class).setParameter("value", brukernavn).getSingleResult();
-				
-			}
-			
-			catch(Exception e) {
-				
-				System.out.println("Søk gav ingen resultater");
-				return null;
-				
-			}
-			
-			return em.find(Ansatt.class, resultat);
-			
-		}
-		
-		finally {
-			
-			em.close();
-			
-		}
-		
-	}
-
 }
