@@ -76,7 +76,6 @@ public class Main {
 		
 		s.close();
 		emf.close();
-		
 	}
 	
 }
