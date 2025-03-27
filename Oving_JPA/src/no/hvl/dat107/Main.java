@@ -1,6 +1,7 @@
 package no.hvl.dat107;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Locale;
 import java.util.Scanner;
 
 import jakarta.persistence.EntityManagerFactory;
@@ -25,13 +26,13 @@ public class Main {
 		
 		Class.forName(JDBC_DRIVER);
 		
-		Scanner s = new Scanner(System.in);
+		Scanner s = new Scanner(System.in).useLocale(Locale.US);
 		boolean done = false;
 		String action = "";
 		
 		while(!done) {
 			
-			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte");
+			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt");
 			
 			action = s.nextLine();
 			
@@ -58,6 +59,14 @@ public class Main {
 			case "liste":
 				for(Ansatt temp : a.ansattListe()) temp.skrivUt();
 				break;
+			case "endre":
+				System.out.println("Skriv inn ansattid: ");
+				id = s.nextInt();
+				s.nextLine();
+				System.out.println("Send inn ny stilling (la være tomt for ikke å endre) og deretter ny månedslønn (negativt tall for ikke å endre: )");
+				a.oppdaterAnsatt(id, s.nextLine(), BigDecimal.valueOf(s.nextDouble()));
+				s.nextLine();
+				break;
 			default:
 				System.out.println("Ugyldig input");
 				break;
@@ -69,7 +78,6 @@ public class Main {
 		
 		s.close();
 		emf.close();
-		
 	}
 	
 }

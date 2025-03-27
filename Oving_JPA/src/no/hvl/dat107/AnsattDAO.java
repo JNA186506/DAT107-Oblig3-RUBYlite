@@ -71,7 +71,7 @@ public class AnsattDAO extends Ansatt {
 		
 	}
 	
-	public static List<Ansatt> ansattListe() {
+	public List<Ansatt> ansattListe() {
 		EntityManager em = emf.createEntityManager();
 
 		try {
@@ -93,8 +93,20 @@ public class AnsattDAO extends Ansatt {
 		try {
 			tx.begin();
 			Ansatt a = em.find(Ansatt.class, id);
-			a.setMaanedslonn(maanedslonn);
-			a.setStilling(stilling);
+			if(!stilling.trim().isEmpty()) {
+				
+				a.setStilling(stilling);
+				System.out.println("Ny stilling er satt");
+				
+			}
+			else System.out.println("Ingen ny stilling");
+			if(maanedslonn.compareTo(BigDecimal.ZERO) >= 0) {
+				
+				a.setMaanedslonn(maanedslonn);
+				System.out.println("Ny månedslønn er satt");
+				
+			}
+			else System.out.println("Ingen ny månedslønn");
 
 			em.merge(a);
 
