@@ -1,6 +1,7 @@
 package no.hvl.dat107;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Fetch;
 
 import java.util.List;
 
@@ -9,24 +10,20 @@ import java.util.List;
 public class Avdeling {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int avdelignsid;
     private String navn;
-    private String sjef;
+    private String leder;
 
     public Avdeling() {}
-    public Avdeling(int avdelignsid, String navn, String sjef) {
+    public Avdeling(int avdelignsid, String navn, String leder) {
         this.avdelignsid = avdelignsid;
         this.navn = navn;
-        this.sjef = sjef;
+        this.leder = leder;
     }
 
-    @OneToMany
-    @JoinTable(
-            name = "oblig3",
-            joinColumns = @JoinColumn(name="avdelingsid"),
-            inverseJoinColumns = @JoinColumn(name="aid")
-    )
-    private List<Ansatt> ansatte;
+    @OneToMany(mappedBy = "avdeling", fetch = FetchType.EAGER)
+    private List<HorerTilAvdeling> ansatte;
 
     public String getNavn() {
         return navn;
@@ -36,12 +33,12 @@ public class Avdeling {
         this.navn = navn;
     }
 
-    public String getSjef() {
-        return sjef;
+    public String getLeder() {
+        return leder;
     }
 
-    public void setSjef(String sjef) {
-        this.sjef = sjef;
+    public void setSjef(String leder) {
+        this.leder = leder;
     }
 
     @Override
@@ -49,7 +46,7 @@ public class Avdeling {
         return "Avdeling{" +
                 "avdelignsid=" + avdelignsid +
                 ", navn='" + navn + '\'' +
-                ", sjef='" + sjef + '\'' +
+                ", sjef='" + leder + '\'' +
                 ", ansatte=" + ansatte +
                 '}';
     }

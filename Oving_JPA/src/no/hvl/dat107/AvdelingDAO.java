@@ -10,15 +10,17 @@ public class AvdelingDAO {
         emf = Persistence.createEntityManagerFactory("ansattPersistenceUnit");
     }
 
-    public Avdeling finnAvdelingMedId(int id) {
+    public Avdeling finnAvdelingMedId(int avdelingsid) {
         EntityManager em = emf.createEntityManager();
 
+        Avdeling a = null;
+
         try {
-            Avdeling a = em.find(Avdeling.class, id);
-            return a;
+            a = em.find(Avdeling.class, avdelingsid);
         }   finally {
             em.close();
         }
+        return a;
     }
 
 }

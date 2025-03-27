@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cbf217f5-dbe2-482e-96d8-72a2eaa3593e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/HorerTilAvdeling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/Oving_JPA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/Oving_JPA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/bin/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/bin/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/Ansatt.class" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/Ansatt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/AnsattDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/AnsattDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/bin/no/hvl/dat107/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/create_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Ansatt.java" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Ansatt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Avdeling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Avdeling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/AvdelingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/AvdelingDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JNA186506&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JNA186506/DAT107-Oblig3-RUBYlite.git&quot;,
+    &quot;accountId&quot;: &quot;87d2aa27-0931-4bfb-9936-ced4c18af8f8&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2ur2I24fPyQtLQZCl6CFqHGUp4K" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Johan/Downloads/postgresql-42.7.5.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cbf217f5-dbe2-482e-96d8-72a2eaa3593e" name="Changes" comment="" />
+      <created>1742992293046</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742992293046</updated>
+      <workItem from="1742992294080" duration="4705000" />
+      <workItem from="1743094583461" duration="66000" />
+      <workItem from="1743094680403" duration="7459000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

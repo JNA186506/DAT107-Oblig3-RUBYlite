@@ -24,8 +24,8 @@ public class Ansatt {
 	private String stilling;
 	private BigDecimal maanedslonn;
 	
-	//@OneToMany(mappedBy = "Ansatt", fetch = FetchType.EAGER)
-	//private List<Ansatt> Ansatte;
+	@OneToMany(mappedBy = "ansatt", fetch = FetchType.EAGER)
+	private List<HorerTilAvdeling> avdelinger;
 	
 	public Ansatt() {}
 	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {

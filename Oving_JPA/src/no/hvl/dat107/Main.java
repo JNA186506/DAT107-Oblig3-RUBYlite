@@ -23,6 +23,13 @@ public class Main {
 		
 		System.out.println("Starter");
 
+
+		AvdelingDAO av = new AvdelingDAO();
+
+		Avdeling i = av.finnAvdelingMedId(1);
+
+		System.out.println(i.toString());
+
 		AnsattDAO a = new AnsattDAO();
 		
 		Class.forName(JDBC_DRIVER);
