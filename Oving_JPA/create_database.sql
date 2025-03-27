@@ -9,7 +9,7 @@ CREATE TABLE ansatt(
 	etternavn varchar NOT NULL,
 	ansettelsesdato date NOT NULL,
 	stilling varchar NOT NULL,
-	maanedslonn money NOT NULL,
+	maanedslonn numeric NOT NULL,
 	PRIMARY KEY (aid)
 );
 
