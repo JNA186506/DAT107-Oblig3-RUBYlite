@@ -109,7 +109,7 @@ public class Main {
 				stilling = s.nextLine();
 				lonn = s.nextDouble();
 				s.nextLine();
-				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn));
+				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn),1);
 				break;
 			default:
 				System.out.println("Ugyldig input");
