@@ -1,8 +1,6 @@
 package no.hvl.dat107;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Fetch;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,4 +55,18 @@ public class Avdeling {
                 ", ansatte=" + ansatteToString() +
                 '}';
     }
+
+	public void skrivUt() {
+
+		AnsattDAO a = new AnsattDAO();
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("Id: " + avdelignsid + "\n");
+		sb.append("Navn: " + navn + "\n");
+		sb.append("Leder: " + a.finnAnsattId(Integer.parseInt(leder)).getBrukernavn() + "\n");
+
+		System.out.println(sb.toString());
+
+	}
+
 }

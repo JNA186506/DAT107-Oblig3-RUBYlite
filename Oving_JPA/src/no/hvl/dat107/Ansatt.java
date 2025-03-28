@@ -115,9 +115,5 @@ public class Ansatt {
 		System.out.println(sb.toString());
 
 	}
-	/*
-	public List<Ansatt> getAnsatt() {
-		return Ansatte;
-	}
-	*/
+	
 }
