@@ -2,8 +2,6 @@ package no.hvl.dat107;
 
 import jakarta.persistence.*;
 
-import javax.annotation.processing.Generated;
-
 @Entity
 @Table(schema = "oblig3")
 

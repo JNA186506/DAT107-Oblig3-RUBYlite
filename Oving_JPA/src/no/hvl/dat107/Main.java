@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -44,7 +43,7 @@ public class Main {
 
 		while(!done) {
 			
-			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt");
+			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt\navdeling id -> finn avdeling med id");
 			
 			action = s.nextLine();
 			
@@ -56,6 +55,7 @@ public class Main {
 			String datoStr = "";
 			String stilling = "";
 			double lonn = 0.0;
+			int avdelingsid = 0;
 
 			switch(action) {
 			case "done":
@@ -110,6 +110,12 @@ public class Main {
 				lonn = s.nextDouble();
 				s.nextLine();
 				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn));
+				break;
+			case "avdeling id":
+				System.out.println("Skriv inn avdelingsid: ");
+				avdelingsid = s.nextInt();
+				s.nextLine();
+				av.finnAvdelingMedId(avdelingsid).skrivUt();
 				break;
 			default:
 				System.out.println("Ugyldig input");

@@ -1,7 +1,7 @@
 package no.hvl.dat107;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -105,9 +105,5 @@ public class Ansatt {
 		System.out.println(sb.toString());
 
 	}
-	/*
-	public List<Ansatt> getAnsatt() {
-		return Ansatte;
-	}
-	*/
+	
 }
