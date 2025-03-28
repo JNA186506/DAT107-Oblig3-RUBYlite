@@ -96,8 +96,9 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 	}
 
+
 	public void skrivUt() {
-		
+
 		StringBuilder sb = new StringBuilder();
 		sb.append("Id: " + aid + "\n");
 		sb.append("Brukernavn: " + brukernavn + "\n");
@@ -106,9 +107,9 @@ public class Ansatt {
 		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
 		sb.append("Stilling: " + stilling + "\n");
 		sb.append("Månedslønn: " + maanedslonn + "\n");
-		
+
 		System.out.println(sb.toString());
-		
+
 	}
 	/*
 	public List<Ansatt> getAnsatt() {

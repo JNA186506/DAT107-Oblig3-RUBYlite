@@ -1,6 +1,7 @@
 package no.hvl.dat107;
 
 import java.math.BigDecimal;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
@@ -56,16 +57,16 @@ public class Main {
 				id = s.nextInt();
 				s.nextLine();
 				ansatt = a.finnAnsattId(id);
-				if(ansatt != null) ansatt.skrivUt();
+				if(ansatt != null) ansatt.toString();
 				break;
 			case "brukernavn":
 				System.out.println("Skriv inn brukernavn: ");
 				String brukernavn = s.nextLine();
 				ansatt = a.finnAnsattBrukernavn(brukernavn);
-				if(ansatt != null) ansatt.skrivUt();
+				if(ansatt != null) ansatt.toString();
 				break;
 			case "liste":
-				for(Ansatt temp : a.ansattListe()) temp.skrivUt();
+				for(Ansatt temp : a.ansattListe()) temp.toString();
 				break;
 			case "endre":
 				System.out.println("Skriv inn ansattid: ");
@@ -77,7 +78,7 @@ public class Main {
 				break;
 			case "leggtil":
 				System.out.println("Skriv inn ansattid: ");
-				a.leggTilAnsatt(s.nextLine(), "Nils", "Nilsen", java.sql.Date.valueOf(LocalDate.now()), "Person", BigDecimal.valueOf(10.2));
+				a.leggTilAnsatt(s.nextLine(), "Nils", "Nilsen", Date.valueOf(LocalDate.now()), "Person", BigDecimal.valueOf(10.2));
 				break;
 			default:
 				System.out.println("Ugyldig input");
