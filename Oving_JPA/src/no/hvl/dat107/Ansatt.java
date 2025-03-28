@@ -27,8 +27,8 @@ public class Ansatt {
 	private String stilling;
 	private BigDecimal maanedslonn;
 	
-	//@OneToMany(mappedBy = "Ansatt", fetch = FetchType.EAGER)
-	//private List<Ansatt> Ansatte;
+	@OneToMany(mappedBy = "ansatt", fetch = FetchType.EAGER)
+	private List<HorerTilAvdeling> avdelinger;
 	
 	public Ansatt() {}
 	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
@@ -90,8 +90,9 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 	}
 
+
 	public void skrivUt() {
-		
+
 		StringBuilder sb = new StringBuilder();
 		sb.append("Id: " + aid + "\n");
 		sb.append("Brukernavn: " + brukernavn + "\n");
@@ -100,9 +101,9 @@ public class Ansatt {
 		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
 		sb.append("Stilling: " + stilling + "\n");
 		sb.append("Månedslønn: " + maanedslonn + "\n");
-		
+
 		System.out.println(sb.toString());
-		
+
 	}
 	/*
 	public List<Ansatt> getAnsatt() {

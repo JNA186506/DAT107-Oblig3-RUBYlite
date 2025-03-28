@@ -26,6 +26,13 @@ public class Main {
 		
 		System.out.println("Starter");
 
+
+		AvdelingDAO av = new AvdelingDAO();
+
+		Avdeling i = av.finnAvdelingMedId(1);
+
+		System.out.println(i.toString());
+
 		AnsattDAO a = new AnsattDAO();
 		
 		Class.forName(JDBC_DRIVER);
@@ -34,7 +41,7 @@ public class Main {
 		boolean done = false;
 		String action = "";
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-		
+
 		while(!done) {
 			
 			System.out.println("\ndone -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt");
@@ -49,7 +56,7 @@ public class Main {
 			String datoStr = "";
 			String stilling = "";
 			double lonn = 0.0;
-			
+
 			switch(action) {
 			case "done":
 				done = true;
@@ -87,16 +94,16 @@ public class Main {
 				Date dato = null;
 				while(dato == null) {
 					try {
-						
+
 						datoStr = s.nextLine();
 						dato = new java.sql.Date(formatter.parse(datoStr).getTime());
-						
+
 					}
-					
+
 					catch (ParseException e) {
-						
+
 						System.out.println("Ugyldig dato (dd-MM-yyyy)");
-						
+
 					}
 				}
 				stilling = s.nextLine();
