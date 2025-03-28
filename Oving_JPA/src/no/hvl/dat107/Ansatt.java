@@ -6,6 +6,8 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -16,6 +18,7 @@ import jakarta.persistence.Table;
 public class Ansatt {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int aid;
 	private String brukernavn;
 	private String fornavn;
@@ -30,7 +33,6 @@ public class Ansatt {
 	public Ansatt() {}
 	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
 		
-		this.aid = aid;
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
@@ -38,14 +40,6 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		
-	}
-
-	public int getAid() {
-		return aid;
-	}
-
-	public void setAid(int aid) {
-		this.aid = aid;
 	}
 
 	public String getBrukernavn() {
