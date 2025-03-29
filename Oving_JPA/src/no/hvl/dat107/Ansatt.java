@@ -39,6 +39,10 @@ public class Ansatt {
 		
 	}
 
+	public int getAid() {
+		return aid;
+	}
+
 	public String getBrukernavn() {
 		return brukernavn;
 	}
@@ -85,6 +89,22 @@ public class Ansatt {
 
 	public void setMaanedslonn(BigDecimal maanedslonn) {
 		this.maanedslonn = maanedslonn;
+	}
+
+	public int getAvdelingsid() {
+		return avdelingsid;
+	}
+
+	public void setAvdelingsid(int avdelingsid) {
+		this.avdelingsid = avdelingsid;
+	}
+
+	public Avdeling getAvdeling() {
+		return avdeling;
+	}
+
+	public void setAvdeling(Avdeling avdeling) {
+		this.avdeling = avdeling;
 	}
 
 	@Override

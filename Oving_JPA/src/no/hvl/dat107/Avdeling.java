@@ -15,8 +15,7 @@ public class Avdeling {
     private int leder;
 
     public Avdeling() {}
-    public Avdeling(int avdelingsid, String navn, int leder) {
-        this.avdelingsid = avdelingsid;
+    public Avdeling(String navn, int leder) {
         this.navn = navn;
         this.leder = leder;
     }
@@ -24,6 +23,13 @@ public class Avdeling {
     @OneToMany(mappedBy = "avdeling", fetch = FetchType.LAZY)
     private List<Ansatt> ansatte;
 
+    public int getAvdelingsid() {
+        return avdelingsid;
+    }
+
+    public void setAvdelingsid(int avdelingsid) {
+        this.avdelingsid = avdelingsid;
+    }
 
     public String getNavn() {
         return navn;
@@ -56,14 +62,16 @@ public class Avdeling {
                 '}';
     }
 
+
+    //Dette er på den måte et svar på iterasjon 4, "... utheving av hvem som er sjef"
 	public void skrivUt() {
 
 		AnsattDAO a = new AnsattDAO();
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("Id: " + avdelignsid + "\n");
+		sb.append("Id: " + avdelingsid + "\n");
 		sb.append("Navn: " + navn + "\n");
-		sb.append("Leder: " + a.finnAnsattId(Integer.parseInt(leder)).getBrukernavn() + "\n");
+		sb.append("Leder: " + a.finnAnsattId(leder).getBrukernavn() + "\n");
 
 		System.out.println(sb.toString());
 
