@@ -20,6 +20,7 @@ public class AvdelingDAO {
         }   finally {
             em.close();
         }
+        System.out.println(a.toString());
         return a;
     }
 
@@ -63,12 +64,15 @@ public class AvdelingDAO {
         AnsattDAO an = new AnsattDAO();
         try {
             tx.begin();
+
+            //Eksisterer ansatt?
             TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :brukernavn",
                     Ansatt.class);
 
             query.setParameter("brukernavn", brukernavn);
 
             List<Ansatt> result = query.getResultList();
+
             if (result.isEmpty()) {
                 return false;
             }

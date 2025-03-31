@@ -20,14 +20,13 @@ public class Ansatt {
 	private Date ansettelsesdato;
 	private String stilling;
 	private BigDecimal maanedslonn;
-	private int avdelingsid;
 
 	@ManyToOne
-	@JoinColumn(name = "avdelingsid",updatable = false, insertable = false )
+	@JoinColumn(name = "avdelingsid")
 	private Avdeling avdeling;
 	
 	public Ansatt() {}
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, int avdelingsid) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -35,8 +34,7 @@ public class Ansatt {
 		this.ansettelsesdato = ansettelsesdato;
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
-		this.avdelingsid = avdelingsid;
-		
+		this.avdeling = avdeling;
 	}
 
 	public int getAid() {
@@ -91,14 +89,6 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 	}
 
-	public int getAvdelingsid() {
-		return avdelingsid;
-	}
-
-	public void setAvdelingsid(int avdelingsid) {
-		this.avdelingsid = avdelingsid;
-	}
-
 	public Avdeling getAvdeling() {
 		return avdeling;
 	}
@@ -117,7 +107,7 @@ public class Ansatt {
 				", ansettelsesdato=" + ansettelsesdato +
 				", stilling='" + stilling + '\'' +
 				", maanedslonn=" + maanedslonn +
-				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +  // Unngå full rekursjon
+				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +
 				'}' + "\n";
 	}
 

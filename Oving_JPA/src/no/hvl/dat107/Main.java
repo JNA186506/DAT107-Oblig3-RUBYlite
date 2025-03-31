@@ -28,9 +28,7 @@ public class Main {
 
 		AvdelingDAO av = new AvdelingDAO();
 
-		Avdeling i = av.finnAvdelingMedId(1);
-
-		System.out.println(i.toString());
+		Avdeling i = av.finnAvdelingMedId(2);
 
 		AnsattDAO a = new AnsattDAO();
 		

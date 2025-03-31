@@ -20,7 +20,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/eclipselink-4.0.5.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/dat107-jar-filer-v25/postgresql-42.7.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -29,7 +29,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/jakarta.persistence-api-3.1.0.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/dat107-jar-filer-v25/jakarta.persistence-api-3.1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -38,7 +38,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/postgresql-42.7.5.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/dat107-jar-filer-v25/eclipselink-4.0.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
