@@ -118,7 +118,7 @@ public class AnsattDAO extends Ansatt {
 
 	}
 	
-	public boolean leggTilAnsatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
+	public boolean leggTilAnsatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn,int avdelingsid) {
 
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction tx = em.getTransaction();
@@ -126,9 +126,9 @@ public class AnsattDAO extends Ansatt {
 		try {
 			tx.begin();
 
-			Ansatt NyA = new Ansatt(brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn);
+			Ansatt nyA = new Ansatt(brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn,1);
 
-			em.persist(NyA);
+			em.persist(nyA);
 
 			tx.commit();
 

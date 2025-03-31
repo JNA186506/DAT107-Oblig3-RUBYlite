@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbf217f5-dbe2-482e-96d8-72a2eaa3593e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Oving_JPA/src/no/hvl/dat107/Prosjekt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DAT107-Oblig3-RUBYlite.iws" beforeDir="false" afterPath="$PROJECT_DIR$/DAT107-Oblig3-RUBYlite.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/create_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/create_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oving_JPA/src/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Oving_JPA/src/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +50,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "git-widget-placeholder": "Johannes2",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Johan/Downloads/postgresql-42.7.5.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Johannes2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Johan/Downloads/postgresql-42.7.5.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -83,6 +87,9 @@
       <workItem from="1742992294080" duration="4705000" />
       <workItem from="1743094583461" duration="66000" />
       <workItem from="1743094680403" duration="7838000" />
+      <workItem from="1743112729211" duration="75000" />
+      <workItem from="1743248324691" duration="5526000" />
+      <workItem from="1743346956853" duration="2422000" />
     </task>
     <servers />
   </component>

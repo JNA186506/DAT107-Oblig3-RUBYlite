@@ -4,13 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(schema = "oblig3")
@@ -26,12 +20,14 @@ public class Ansatt {
 	private Date ansettelsesdato;
 	private String stilling;
 	private BigDecimal maanedslonn;
-	
-	@OneToMany(mappedBy = "ansatt", fetch = FetchType.EAGER)
-	private List<HorerTilAvdeling> avdelinger;
+	private int avdelingsid;
+
+	@ManyToOne
+	@JoinColumn(name = "avdelingsid",updatable = false, insertable = false )
+	private Avdeling avdeling;
 	
 	public Ansatt() {}
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, int avdelingsid) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -39,7 +35,12 @@ public class Ansatt {
 		this.ansettelsesdato = ansettelsesdato;
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
+		this.avdelingsid = avdelingsid;
 		
+	}
+
+	public int getAid() {
+		return aid;
 	}
 
 	public String getBrukernavn() {
@@ -90,6 +91,35 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 	}
 
+	public int getAvdelingsid() {
+		return avdelingsid;
+	}
+
+	public void setAvdelingsid(int avdelingsid) {
+		this.avdelingsid = avdelingsid;
+	}
+
+	public Avdeling getAvdeling() {
+		return avdeling;
+	}
+
+	public void setAvdeling(Avdeling avdeling) {
+		this.avdeling = avdeling;
+	}
+
+	@Override
+	public String toString() {
+		return "Ansatt{" +
+				"aid=" + aid +
+				", brukernavn='" + brukernavn + '\'' +
+				", fornavn='" + fornavn + '\'' +
+				", etternavn='" + etternavn + '\'' +
+				", ansettelsesdato=" + ansettelsesdato +
+				", stilling='" + stilling + '\'' +
+				", maanedslonn=" + maanedslonn +
+				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +  // Unngå full rekursjon
+				'}' + "\n";
+	}
 
 	public void skrivUt() {
 
