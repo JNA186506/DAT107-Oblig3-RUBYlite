@@ -32,7 +32,7 @@ public class AvdelingDAO {
             Avdeling nyA = new Avdeling(avdelingsnavn, leder.getAid());
 
             Ansatt eksisterendeLeder = em.find(Ansatt.class, leder.getAid());
-            if (eksisterendeLeder == null || eksisterendeLeder.getAvdeling() != null) {
+            if (eksisterendeLeder == null) {
                 return false;
             }
 
@@ -42,6 +42,7 @@ public class AvdelingDAO {
             em.merge(leder);
 
             tx.commit();
+            
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,20 +70,21 @@ public class AvdelingDAO {
             query.setParameter("brukernavn", brukernavn);
 
             List<Ansatt> result = query.getResultList();
+            
             if (result.isEmpty()) {
                 return false;
             }
-
+            
             Ansatt a = result.get(0);
             a.setAvdeling(avdeling);
-
+            
             em.merge(a);
             tx.commit();
         } finally {
             em.close();
         }
-
-        return false;
+        
+        return true;
     }
 
 }

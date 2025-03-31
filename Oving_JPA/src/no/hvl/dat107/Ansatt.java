@@ -2,8 +2,6 @@ package no.hvl.dat107;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -20,14 +18,13 @@ public class Ansatt {
 	private Date ansettelsesdato;
 	private String stilling;
 	private BigDecimal maanedslonn;
-	private int avdelingsid;
 
 	@ManyToOne
-	@JoinColumn(name = "avdelingsid",updatable = false, insertable = false )
+	@JoinColumn(name = "avdelingsid")
 	private Avdeling avdeling;
 	
 	public Ansatt() {}
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, int avdelingsid) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -35,7 +32,7 @@ public class Ansatt {
 		this.ansettelsesdato = ansettelsesdato;
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
-		this.avdelingsid = avdelingsid;
+		this.avdeling = avdeling;
 		
 	}
 
@@ -91,14 +88,6 @@ public class Ansatt {
 		this.maanedslonn = maanedslonn;
 	}
 
-	public int getAvdelingsid() {
-		return avdelingsid;
-	}
-
-	public void setAvdelingsid(int avdelingsid) {
-		this.avdelingsid = avdelingsid;
-	}
-
 	public Avdeling getAvdeling() {
 		return avdeling;
 	}
@@ -131,6 +120,7 @@ public class Ansatt {
 		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
 		sb.append("Stilling: " + stilling + "\n");
 		sb.append("Månedslønn: " + maanedslonn + "\n");
+		sb.append("Avdeling: " + avdeling.getNavn() + "\n");
 
 		System.out.println(sb.toString());
 

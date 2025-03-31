@@ -43,9 +43,9 @@ public class Main {
 
 		while(!done) {
 			
-			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt\navdeling id -> finn avdeling med id");
+			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt\navdeling id -> finn avdeling med id\nopprett avdeling -> opprett ny avdeling\noppdater avdeling -> flytt ansatt til en annen avdeling");
 			
-			action = s.nextLine();
+			action = s.nextLine().toLowerCase();
 			
 			Ansatt ansatt = null;
 			Integer id = null;
@@ -109,7 +109,9 @@ public class Main {
 				stilling = s.nextLine();
 				lonn = s.nextDouble();
 				s.nextLine();
-				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn),1);
+				id = s.nextInt();
+				s.nextLine();
+				a.leggTilAnsatt(brukernavn, fornavn, etternavn, dato, stilling, BigDecimal.valueOf(lonn), av.finnAvdelingMedId(id));
 				break;
 			case "avdeling id":
 				System.out.println("Skriv inn avdelingsid: ");
@@ -117,8 +119,25 @@ public class Main {
 				s.nextLine();
 				av.finnAvdelingMedId(avdelingsid).skrivUt();
 				break;
+			case "opprett avdeling":
+				System.out.println("Skriv inn navn på ny avdeling og id til leder, separat: ");
+				String navn = s.nextLine();
+				id = s.nextInt();
+				s.nextLine();
+				ansatt = a.finnAnsattId(id);
+				if(av.leggTilAvdeling(navn, ansatt)) System.out.println("Avdeling lagt til\n");
+				else System.out.println("Ugyldig input\n");
+				break;
+			case "oppdater avdeling":
+				System.out.println("Skriv inn brukernavn på ansatt som skal overføres og id på avdeling de skal flyttes til, separat: ");
+				brukernavn = s.nextLine();
+				Avdeling avdeling = av.finnAvdelingMedId(s.nextInt());
+				s.nextLine();
+				if(av.oppdaterAnsattAvedeling(brukernavn, avdeling)) System.out.println("Ansatt ble flyttet\n");
+				else System.out.println("Ugyldig input\n");
+				break;
 			default:
-				System.out.println("Ugyldig input");
+				System.out.println("Ugyldig input\n");
 				break;
 			}
 			
