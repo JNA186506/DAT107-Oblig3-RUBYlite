@@ -20,7 +20,6 @@ public class AvdelingDAO {
         }   finally {
             em.close();
         }
-        System.out.println(a.toString());
         return a;
     }
 
@@ -33,7 +32,7 @@ public class AvdelingDAO {
             Avdeling nyA = new Avdeling(avdelingsnavn, leder.getAid());
 
             Ansatt eksisterendeLeder = em.find(Ansatt.class, leder.getAid());
-            if (eksisterendeLeder == null || eksisterendeLeder.getAvdeling() != null) {
+            if (eksisterendeLeder == null) {
                 return false;
             }
 
@@ -64,15 +63,12 @@ public class AvdelingDAO {
         AnsattDAO an = new AnsattDAO();
         try {
             tx.begin();
-
-            //Eksisterer ansatt?
             TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :brukernavn",
                     Ansatt.class);
 
             query.setParameter("brukernavn", brukernavn);
 
             List<Ansatt> result = query.getResultList();
-
             if (result.isEmpty()) {
                 return false;
             }
@@ -86,7 +82,7 @@ public class AvdelingDAO {
             em.close();
         }
 
-        return false;
+        return true;
     }
 
 }

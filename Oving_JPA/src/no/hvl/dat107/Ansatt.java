@@ -2,8 +2,6 @@ package no.hvl.dat107;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -35,6 +33,7 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		this.avdeling = avdeling;
+		
 	}
 
 	public int getAid() {
@@ -121,6 +120,7 @@ public class Ansatt {
 		sb.append("Dato for ansettelse: " + ansettelsesdato + "\n");
 		sb.append("Stilling: " + stilling + "\n");
 		sb.append("Månedslønn: " + maanedslonn + "\n");
+		sb.append("Avdeling: " + avdeling.getNavn() + "\n");
 
 		System.out.println(sb.toString());
 
