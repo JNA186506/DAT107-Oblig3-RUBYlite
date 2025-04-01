@@ -72,6 +72,7 @@ public class Avdeling {
 		sb.append("Id: " + avdelingsid + "\n");
 		sb.append("Navn: " + navn + "\n");
 		sb.append("Leder: " + a.finnAnsattId(leder).getBrukernavn() + "\n");
+		sb.append("Ansatte: " + ansatteToString() + "\n");
 
 		System.out.println(sb.toString());
 
