@@ -29,7 +29,7 @@ public class Ansatt {
 	
 	public Ansatt() {}
 	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato,
-				  String stilling, BigDecimal maanedslonn, Avdeling avdeling, Prosjekt prosjekt) {
+				  String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -38,7 +38,6 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		this.avdeling = avdeling;
-		this.prosjekt = prosjekt;
 		
 	}
 

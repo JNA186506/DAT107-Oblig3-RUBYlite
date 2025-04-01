@@ -54,4 +54,16 @@ public class Prosjekt {
                 ", ansatte='" + ansatteToString() +
                 '}';
     }
+    
+    public void skrivUt() {
+    	
+    	StringBuilder sb = new StringBuilder();
+    	sb.append("Id: " + prosjektid + "\n");
+    	sb.append("Navn: " + prosjektnavn + "\n");
+    	sb.append("Ansatte: " + ansatteToString() + "\n");
+    	
+    	System.out.println(sb.toString());
+    	
+    }
+    
 }
