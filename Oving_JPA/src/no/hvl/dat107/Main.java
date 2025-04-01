@@ -28,8 +28,6 @@ public class Main {
 
 		AvdelingDAO av = new AvdelingDAO();
 
-		Avdeling i = av.finnAvdelingMedId(2);
-
 		AnsattDAO a = new AnsattDAO();
 		
 		Class.forName(JDBC_DRIVER);
