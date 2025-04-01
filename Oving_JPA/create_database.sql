@@ -54,6 +54,12 @@ CREATE TABLE prosjekttimer
     FOREIGN KEY (ansattid) REFERENCES ansatt(aid)
 );
 
+INSERT INTO avdeling(navn, leder)
+VALUES
+    ('IT', NULL),
+    ('HR', NULL),
+    ('Finance', NULL);
+
 INSERT INTO ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn, avdelingsid, prosjektid)
 VALUES
     ('Per', 'Peter', 'Petterson', '2020-12-10', 'Leder', 20.00, 1,1),

@@ -75,4 +75,9 @@ public class ProsjektDAO {
         }
     }
 
+    public void /*TODO*/ registrerTimer() {
+        /* TODO legg til registrer timer
+            Trenger timer funksjonalitet */
+    }
+
 }
