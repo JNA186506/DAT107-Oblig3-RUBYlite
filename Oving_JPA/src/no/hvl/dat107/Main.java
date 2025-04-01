@@ -27,8 +27,8 @@ public class Main {
 
 
 		AvdelingDAO av = new AvdelingDAO();
-
 		AnsattDAO a = new AnsattDAO();
+		ProsjektDAO p = new ProsjektDAO();
 		
 		Class.forName(JDBC_DRIVER);
 		
@@ -39,12 +39,13 @@ public class Main {
 
 		while(!done) {
 			
-			System.out.println("done -> avslutter programmet\nid -> søk etter id\nbrukernavn -> søk etter brukernavn\nliste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til -> legg til ansatt\navdeling id -> finn avdeling med id\nopprett avdeling -> opprett ny avdeling\noppdater avdeling -> flytt ansatt til en annen avdeling");
+			System.out.println("done -> avslutter programmet\nid ansatt -> søk etter id\nbrukernavn ansatt -> søk etter brukernavn\nansatt liste -> skriv ut liste av ansatte\nendre -> endre stilling og/eller månedslønn for en ansatt\nlegg til ansatt -> legg til ansatt\navdeling id -> finn avdeling med id\nopprett avdeling -> opprett ny avdeling\noppdater avdeling -> flytt ansatt til en annen avdeling\nnytt prosjekt -> opprett nytt prosjekt\nfinn prosjekt -> finn prosjekt med id");
 			
 			action = s.nextLine().toLowerCase();
 			
 			Ansatt ansatt = null;
 			Integer id = null;
+			Integer pId = null;
 			String brukernavn = "";
 			String fornavn = "";
 			String etternavn = "";
@@ -57,20 +58,20 @@ public class Main {
 			case "done":
 				done = true;
 				break;
-			case "id":
+			case "id ansatt":
 				System.out.println("Skriv inn id: ");
 				id = s.nextInt();
 				s.nextLine();
 				ansatt = a.finnAnsattId(id);
 				if(ansatt != null) ansatt.skrivUt();
 				break;
-			case "brukernavn":
+			case "brukernavn ansatt":
 				System.out.println("Skriv inn brukernavn: ");
 				brukernavn = s.nextLine();
 				ansatt = a.finnAnsattBrukernavn(brukernavn);
 				if(ansatt != null) ansatt.skrivUt();
 				break;
-			case "liste":
+			case "ansatt liste":
 				for(Ansatt temp : a.ansattListe()) temp.skrivUt();
 				break;
 			case "endre":
@@ -81,12 +82,12 @@ public class Main {
 				a.oppdaterAnsatt(id, s.nextLine(), BigDecimal.valueOf(s.nextDouble()));
 				s.nextLine();
 				break;
-			case "legg til":
+			case "legg til ansatt":
 				System.out.println("Skriv inn følgende, separat: brukernavn (maks 4 tegn), fornavn, etternavn");
 				brukernavn = s.nextLine();
 				fornavn = s.nextLine();
 				etternavn = s.nextLine();
-				System.out.println("Skriv inn følgende, separat: dato (dd-MM-yyyy), stilling, lønn (xyz.abc)");
+				System.out.println("Skriv inn følgende, separat: dato (dd-MM-yyyy), stilling, lønn (xyz.abc), id til avdelingen de hører til");
 				Date dato = null;
 				while(dato == null) {
 					try {
@@ -131,6 +132,17 @@ public class Main {
 				s.nextLine();
 				if(av.oppdaterAnsattAvedeling(brukernavn, avdeling)) System.out.println("Ansatt ble flyttet\n");
 				else System.out.println("Ugyldig input\n");
+				break;
+			case "nytt prosjekt":
+				System.out.println("Skriv inn navn på nytt prosjekt");
+				if(p.leggTilProsjekt(s.nextLine())) System.out.println("Nytt prosjekt opprettet\n");
+				else System.out.println("Ugyldig input\n");
+				break;
+			case "finn prosjekt":
+				System.out.println("Skriv inn id til prosjekt");
+				pId = s.nextInt();
+				s.nextLine();
+				p.finnProsjektMedId(pId).skrivUt();
 				break;
 			default:
 				System.out.println("Ugyldig input\n");
