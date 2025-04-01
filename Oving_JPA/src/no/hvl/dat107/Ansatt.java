@@ -22,9 +22,14 @@ public class Ansatt {
 	@ManyToOne
 	@JoinColumn(name = "avdelingsid")
 	private Avdeling avdeling;
+
+	@ManyToOne
+	@JoinColumn(name = "prosjektid")
+	private Prosjekt prosjekt;
 	
 	public Ansatt() {}
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato,
+				  String stilling, BigDecimal maanedslonn, Avdeling avdeling, Prosjekt prosjekt) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -33,6 +38,7 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		this.avdeling = avdeling;
+		this.prosjekt = prosjekt;
 		
 	}
 
@@ -96,6 +102,18 @@ public class Ansatt {
 		this.avdeling = avdeling;
 	}
 
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
+
+	public Prosjekt getProsjekt() {
+		return prosjekt;
+	}
+
+	public void setProsjekt(Prosjekt prosjekt) {
+		this.prosjekt = prosjekt;
+	}
+
 	@Override
 	public String toString() {
 		return "Ansatt{" +
@@ -106,7 +124,7 @@ public class Ansatt {
 				", ansettelsesdato=" + ansettelsesdato +
 				", stilling='" + stilling + '\'' +
 				", maanedslonn=" + maanedslonn +
-				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +  // Unngå full rekursjon
+				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +
 				'}' + "\n";
 	}
 

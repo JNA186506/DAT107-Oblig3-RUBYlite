@@ -36,10 +36,6 @@ CREATE TABLE ansatt
 );
 
 
-INSERT INTO avdeling(navn, leder)
-VALUES ('IT', NULL),
-       ('HR', NULL),
-       ('Finance', NULL);
 
 INSERT INTO prosjekt (prosjektnavn)
 VALUES
@@ -47,6 +43,16 @@ VALUES
     ('Statoil'),
     ('Laks');
 
+
+CREATE TABLE prosjekttimer
+(
+    prosjektid int,
+    ansattid int,
+    timer float,
+    PRIMARY KEY (prosjektid, ansattid),
+    FOREIGN KEY (prosjektid) REFERENCES prosjekt(prosjektid),
+    FOREIGN KEY (ansattid) REFERENCES ansatt(aid)
+);
 
 INSERT INTO ansatt (brukernavn, fornavn, etternavn, ansettelsesdato, stilling, maanedslonn, avdelingsid, prosjektid)
 VALUES

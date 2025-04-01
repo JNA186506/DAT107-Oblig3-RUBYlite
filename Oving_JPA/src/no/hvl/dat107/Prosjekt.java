@@ -1,6 +1,10 @@
 package no.hvl.dat107;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Fetch;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(schema = "oblig3")
@@ -10,6 +14,9 @@ public class Prosjekt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int prosjektid;
     private String prosjektnavn;
+
+    @OneToMany(mappedBy = "prosjekt", fetch = FetchType.LAZY)
+    private List<Ansatt> ansatte;
 
     public Prosjekt() {
     }
@@ -34,11 +41,17 @@ public class Prosjekt {
         this.prosjektnavn = prosjektnavn;
     }
 
+    public String ansatteToString() {
+        return ansatte.stream().map(Object::toString)
+                .collect(Collectors.joining(" "));
+    }
+
     @Override
     public String toString() {
         return "Prosjekt{" +
                 "prosjektid=" + prosjektid +
                 ", prosjektnavn='" + prosjektnavn + '\'' +
+                ", ansatte='" + ansatteToString() +
                 '}';
     }
 }
