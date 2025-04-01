@@ -2,6 +2,8 @@ package no.hvl.dat107;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -23,14 +25,13 @@ public class Ansatt {
 	@JoinColumn(name = "avdelingsid")
 	private Avdeling avdeling;
 
-	@ManyToOne
+	@ManyToMany
 	@JoinColumn(name = "prosjektid")
-	private Prosjekt prosjekt;
+	private List<Prosjekt> prosjekt;
 	
 	public Ansatt() {}
 	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato,
-				  String stilling, BigDecimal maanedslonn, Avdeling avdeling, Prosjekt prosjekt) {
-		
+				  String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
 		this.etternavn = etternavn;
@@ -38,8 +39,6 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		this.avdeling = avdeling;
-		this.prosjekt = prosjekt;
-		
 	}
 
 	public int getAid() {
@@ -106,12 +105,12 @@ public class Ansatt {
 		this.aid = aid;
 	}
 
-	public Prosjekt getProsjekt() {
+	public List<Prosjekt> getProsjekt() {
 		return prosjekt;
 	}
 
 	public void setProsjekt(Prosjekt prosjekt) {
-		this.prosjekt = prosjekt;
+		this.prosjekt.add(prosjekt);
 	}
 
 	@Override
@@ -125,6 +124,7 @@ public class Ansatt {
 				", stilling='" + stilling + '\'' +
 				", maanedslonn=" + maanedslonn +
 				", avdelingsid=" + (avdeling != null ? avdeling.getNavn() : "NULL") +
+				", prosjekt=" + prosjekt.toString() +
 				'}' + "\n";
 	}
 

@@ -15,7 +15,7 @@ public class Prosjekt {
     private int prosjektid;
     private String prosjektnavn;
 
-    @OneToMany(mappedBy = "prosjekt", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "prosjekt", fetch = FetchType.LAZY)
     private List<Ansatt> ansatte;
 
     public Prosjekt() {

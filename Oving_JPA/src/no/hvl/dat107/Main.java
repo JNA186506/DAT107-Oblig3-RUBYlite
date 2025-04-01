@@ -27,7 +27,7 @@ public class Main {
 
 
 		AvdelingDAO av = new AvdelingDAO();
-    
+
 		AnsattDAO a = new AnsattDAO();
 		
 		Class.forName(JDBC_DRIVER);
