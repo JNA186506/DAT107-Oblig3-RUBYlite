@@ -29,7 +29,7 @@ CREATE TABLE ansatt
     stilling        varchar    NOT NULL,
     maanedslonn     numeric    NOT NULL,
     avdelingsid     int        NOT NULL,
-    prosjektid int NOT NULL,
+    prosjektid int,
     PRIMARY KEY (aid),
     FOREIGN KEY (avdelingsid) REFERENCES avdeling(avdelingsid),
     FOREIGN KEY (prosjektid) REFERENCES prosjekt(prosjektid)
