@@ -27,8 +27,8 @@ public class Main {
 
 
 		AvdelingDAO av = new AvdelingDAO();
+
 		AnsattDAO a = new AnsattDAO();
-		ProsjektDAO p = new ProsjektDAO();
 		
 		Class.forName(JDBC_DRIVER);
 		
@@ -45,7 +45,6 @@ public class Main {
 			
 			Ansatt ansatt = null;
 			Integer id = null;
-			Integer pId = null;
 			String brukernavn = "";
 			String fornavn = "";
 			String etternavn = "";
@@ -87,7 +86,7 @@ public class Main {
 				brukernavn = s.nextLine();
 				fornavn = s.nextLine();
 				etternavn = s.nextLine();
-				System.out.println("Skriv inn følgende, separat: dato (dd-MM-yyyy), stilling, lønn (xyz.abc), id til avdelingen de hører til");
+				System.out.println("Skriv inn følgende, separat: dato (dd-MM-yyyy), stilling, lønn (xyz.abc)");
 				Date dato = null;
 				while(dato == null) {
 					try {
@@ -132,17 +131,6 @@ public class Main {
 				s.nextLine();
 				if(av.oppdaterAnsattAvedeling(brukernavn, avdeling)) System.out.println("Ansatt ble flyttet\n");
 				else System.out.println("Ugyldig input\n");
-				break;
-			case "nytt prosjekt":
-				System.out.println("Skriv inn navn på nytt prosjekt");
-				if(p.leggTilProsjekt(s.nextLine())) System.out.println("Nytt prosjekt opprettet\n");
-				else System.out.println("Ugyldig input\n");
-				break;
-			case "finn prosjekt":
-				System.out.println("Skriv inn id til prosjekt");
-				pId = s.nextInt();
-				s.nextLine();
-				p.finnProsjektMedId(pId).skrivUt();
 				break;
 			default:
 				System.out.println("Ugyldig input\n");
