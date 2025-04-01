@@ -1,7 +1,6 @@
 package no.hvl.dat107;
 
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.Fetch;
 
 import java.util.List;
 import java.util.stream.Collectors;

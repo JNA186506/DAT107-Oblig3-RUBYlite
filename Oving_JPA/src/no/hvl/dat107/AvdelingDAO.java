@@ -60,7 +60,6 @@ public class AvdelingDAO {
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
 
-        AnsattDAO an = new AnsattDAO();
         try {
             tx.begin();
             TypedQuery<Ansatt> query = em.createQuery("SELECT a FROM Ansatt a WHERE a.brukernavn = :brukernavn",
