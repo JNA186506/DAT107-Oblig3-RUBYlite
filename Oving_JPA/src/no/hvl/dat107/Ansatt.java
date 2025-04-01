@@ -22,9 +22,14 @@ public class Ansatt {
 	@ManyToOne
 	@JoinColumn(name = "avdelingsid")
 	private Avdeling avdeling;
+
+	@ManyToOne
+	@JoinColumn(name = "prosjektid")
+	private Prosjekt prosjekt;
 	
 	public Ansatt() {}
-	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato, String stilling, BigDecimal maanedslonn, Avdeling avdeling) {
+	public Ansatt(String brukernavn, String fornavn, String etternavn, Date ansettelsesdato,
+				  String stilling, BigDecimal maanedslonn, Avdeling avdeling, Prosjekt prosjekt) {
 		
 		this.brukernavn = brukernavn;
 		this.fornavn = fornavn;
@@ -33,6 +38,7 @@ public class Ansatt {
 		this.stilling = stilling;
 		this.maanedslonn = maanedslonn;
 		this.avdeling = avdeling;
+		this.prosjekt = prosjekt;
 		
 	}
 
@@ -94,6 +100,18 @@ public class Ansatt {
 
 	public void setAvdeling(Avdeling avdeling) {
 		this.avdeling = avdeling;
+	}
+
+	public void setAid(int aid) {
+		this.aid = aid;
+	}
+
+	public Prosjekt getProsjekt() {
+		return prosjekt;
+	}
+
+	public void setProsjekt(Prosjekt prosjekt) {
+		this.prosjekt = prosjekt;
 	}
 
 	@Override
